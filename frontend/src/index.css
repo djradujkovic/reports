@@ -1,0 +1,71 @@
+:root {
+  /* --header: #4a6d7c;
+  --main: #62929e;
+  --second: #c6c5b9;
+  --second: var(--header);
+  --text: white;
+  --lines: white; */
+
+  /* --header: #394648;
+  --text: #cbac88;
+  --main: #69995d; */
+
+  --main: #899878;
+  --second: #e4e6c3;
+  /* --text: #4f4789; */
+  --text: #95190c;
+
+  --header: var(--second);
+  --lines: var(--text);
+
+  /* --header: #247b7b;
+  --main: #44a1a0;
+  --second: #73956f;
+  --text: black;
+  --lines: black; */
+
+  /* --header: #7a9e9f;
+  --main: #4f6367;
+  --second: #b8d8d8;
+  --text: black;
+  --lines: black; */
+
+  /* --header: #d5ac4e;
+  --main: #eecf6d;
+  --second: #d5ac4e;
+  --text: black;
+  --lines: black; */
+  /* 
+  --header: #48639c;
+  --main: #a7cced;
+  --second: var(--header);
+  --text: black;
+  --lines: black; */
+
+  --radius: 0.5rem;
+  --text-size: 1.5em;
+}
+
+@media (max-width: 1280px) {
+  :root {
+    --text-size: 1em;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: var(--text-size);
+  color: var(--text);
+  scrollbar-color: var(--main) var(--second);
+  /* background-color: var(--main); */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

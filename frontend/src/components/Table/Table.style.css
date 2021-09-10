@@ -1,0 +1,174 @@
+.table-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  overflow: hidden;
+}
+
+.table {
+  background-color: var(--second);
+  border-radius: var(--radius) var(--radius) 0rem 0rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  text-align: center;
+  overflow: hidden;
+  margin: 2rem;
+  margin-bottom: 0rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  transition: 1s background-color;
+}
+
+.table > div {
+  overflow-y: auto;
+  overflow-x: visible;
+}
+
+.table > div > div,
+.table > .head {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 1rem;
+  border-radius: var(--radius);
+  grid-template-areas:
+    ". . . . . ."
+    "div div div div div div";
+  cursor: pointer;
+  background-color: var(--main);
+  box-shadow: 
+  /* rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, */ rgba(
+      10,
+      37,
+      64,
+      0.35
+    )
+    0px -2px 6px 0px inset;
+  /* box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; */
+  transition: 1s background-color;
+}
+
+.table > .head {
+  margin: 0;
+  /* box-shadow: none; */
+  border: none;
+  /* border-radius: 0; */
+}
+
+.table > div > div > div {
+  padding: 3rem;
+  grid-area: div;
+  border-radius: 0 0 var(--radius) var(--radius);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 800px) {
+  .table > div > div > div {
+    grid-template-columns: 1fr;
+  }
+}
+
+.filter {
+  position: relative;
+  /* place-self: center; */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  place-content: start;
+  gap: 1rem 0rem;
+  background-color: var(--second);
+  margin-bottom: 2rem;
+  margin-left: 0rem;
+  font-size: 0.7em;
+  border: 1px solid var(--lines);
+  border-radius: var(--radius);
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+  /* z-index: 2; */
+  transition: 1s background-color;
+}
+
+.icon {
+  position: absolute;
+  /* top: 0rem; */
+  /* left: 3rem; */
+  right: -4.7rem;
+  bottom: 1rem;
+  /* right: 10px; */
+  height: 3rem;
+  width: 0.6rem;
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+  place-content: center end;
+
+  background-color: var(--second);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  border: 1px solid var(--lines);
+  border-left: none;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+  transition: 1s background-color;
+}
+
+.icon > * {
+  margin: -1rem;
+}
+
+.invisible {
+  position: absolute;
+  /* opacity: 0; */
+  left: -2rem;
+  height: 100%;
+  width: 4rem;
+  /* background-color: red; */
+  /* padding: 0px; */
+  /* margin: 0px; */
+  /* max-width: 1px; */
+}
+
+.filter > *:not(.icon, .invisible) {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--main);
+  justify-content: center;
+  padding: 1.5rem;
+  border: none;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+  transition: 1s background-color;
+}
+
+.filter > button {
+  grid-column: 2;
+  border-radius: none;
+  border-radius: var(--radius);
+  font-size: 2rem;
+  color: var(--text);
+}
+.filter > *:nth-child(odd):not(.icon, button, .invisible) {
+  border-radius: var(--radius) 0rem 0rem var(--radius);
+}
+
+.filter > *:nth-child(even):not(.invisible) {
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.filter > * > input {
+  /* margin: -1rem; */
+  background-color: var(--main);
+  border: none;
+}
+
+.filter > .range {
+  display: grid;
+  gap: 2rem;
+}
