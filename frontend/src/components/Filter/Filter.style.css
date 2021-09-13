@@ -1,0 +1,78 @@
+.filter-wrap {
+  /* display: block; */
+  background-color: var(--second);
+  border: 1px solid var(--lines);
+  border-radius: var(--radius);
+  position: relative;
+  /* max-width: 25%; */
+  margin-bottom: 1rem;
+  /* max-height: 80%; */
+  /* overflow-y: hidden; */
+}
+
+.filter {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem 0rem;
+  padding: 1rem;
+  place-content: start;
+  /* overflow: scroll; */
+  max-height: 100%;
+  font-size: 1em;
+  /* height: max-content; */
+}
+
+.filter > * {
+  background-color: var(--main);
+  padding: 1rem;
+}
+
+.filter > * > input {
+  background-color: var(--main);
+  border: none;
+}
+
+.filter > .range {
+  display: grid;
+  gap: 2rem;
+}
+
+.filter > button {
+  grid-column: 2;
+  border-radius: none;
+  border-radius: var(--radius);
+  color: var(--text);
+}
+
+.filter > *:nth-child(odd):not(button) {
+  border-radius: var(--radius) 0rem 0rem var(--radius);
+}
+
+.filter > *:nth-child(even) {
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.icon {
+  position: absolute;
+  right: -4.95rem;
+  bottom: 0.5rem;
+  padding: 1rem;
+  display: grid;
+  background-color: var(--second);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  border: 1px solid var(--lines);
+  border-left: none;
+}
+
+.invisible {
+  position: absolute;
+  top: 0;
+  left: -2rem;
+  height: 100%;
+  width: 4rem;
+}
+
+select:focus {
+  border: 1px solid var(--lines);
+  border-radius: var(--radius);
+}

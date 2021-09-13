@@ -43,10 +43,10 @@
   --lines: black; */
 
   --radius: 0.5rem;
-  --text-size: 1.5em;
+  --text-size: 1em;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1347px) {
   :root {
     --text-size: 1em;
   }

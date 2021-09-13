@@ -1,0 +1,119 @@
+.filter {
+  position: relative;
+  /* overflow: scroll; */
+  /* height: 90%; */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  place-content: start;
+  padding: 2rem;
+  gap: 1rem 0rem;
+}
+
+.filter-wrap {
+  position: relative;
+  /* place-self: center; */
+  /* display: grid; */
+  /* height: 60%; */
+  background-color: var(--second);
+  margin-bottom: 2rem;
+  margin-left: 0rem;
+  font-size: 0.7em;
+  border: 1px solid var(--lines);
+  border-radius: var(--radius);
+  /* height: 100%; */
+  /* overflow-x: hidden; */
+  /* overflow: scroll; */
+  /* overflow-x: default; */
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+	  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+	  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+  /* z-index: 2; */
+  transition: 1s background-color;
+}
+
+.icon {
+  position: absolute;
+  /* top: 0rem; */
+  /* left: 3rem; */
+  right: -4.7rem;
+  bottom: 1rem;
+  /* right: 10px; */
+  height: 3rem;
+  width: 0.6rem;
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+  place-content: center end;
+
+  background-color: var(--second);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  border: 1px solid var(--lines);
+  border-left: none;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+	  rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+	  rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+  transition: 1s background-color;
+}
+
+.icon > * {
+  margin: -1rem;
+}
+
+.invisible {
+  position: absolute;
+  /* opacity: 0; */
+  top: 0;
+  left: -2rem;
+  height: 100%;
+  width: 4rem;
+  /* background-color: red; */
+  /* padding: 0px; */
+  /* margin: 0px; */
+  /* max-width: 1px; */
+}
+
+.filter > *:not(.icon, .invisible) {
+  display: flex;
+  gap: 1rem;
+  background-color: var(--main);
+  justify-content: center;
+  padding: 1.5rem;
+  border: none;
+  box-shadow:
+	 /* rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, */
+	  /* rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, */ rgba(
+      10,
+      37,
+      64,
+      0.35
+    )
+    0px -2px 6px 0px inset;
+
+  transition: 1s background-color;
+}
+
+.filter > button {
+  grid-column: 2;
+  border-radius: none;
+  border-radius: var(--radius);
+  font-size: 2rem;
+  color: var(--text);
+}
+.filter > *:nth-child(odd):not(.icon, button, .invisible) {
+  border-radius: var(--radius) 0rem 0rem var(--radius);
+}
+
+.filter > *:nth-child(even):not(.invisible) {
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.filter > * > input {
+  /* margin: -1rem; */
+  background-color: var(--main);
+  border: none;
+}
+
+.filter > .range {
+  display: grid;
+  gap: 2rem;
+}

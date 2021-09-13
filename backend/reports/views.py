@@ -5,19 +5,34 @@ from django.apps import apps
 
 def CreateReport(page, filters):
 	model = apps.get_model(app_label='pages', model_name=page)
-	filter = {key: value for key, value in filters.items() if type(value) == int and value != 0}
-	models = model.objects.filter(**filter)
+	# filter = {key: value for key, value in filters.items() if type(value) == int and value != 0}
+	# models = model.objects.filter(**filter)
 
-	max_filter = {f'{key}__lte': value.get('max') for key, value in filters.items() if type(value) == dict and value.get('max')}
-	models = models.filter(**max_filter)
+	# max_filter = {f'{key}__lte': value.get('max') for key, value in filters.items() if type(value) == dict and value.get('max')}
+	# models = models.filter(**max_filter)
 
-	min_filter = {f'{key}__gte': value.get('min') for key, value in filters.items() if type(value) == dict and value.get('min')}
+	# min_filter = {f'{key}__gte': value.get('min') for key, value in filters.items() if type(value) == dict and value.get('min')}
 
-	models = models.filter(**min_filter)
+	# models = models.filter(**min_filter)
 	
-	text_filter = {f'{key}__icontains': value for key, value in filters.items() if type(value) == str and value}
+	# text_filter = {f'{key}__icontains': value for key, value in filters.items() if type(value) == str and value}
 
-	models = models.filter(**text_filter)
+	# models = models.filter(**text_filter)
+
+	filter = {}
+
+	for key, value in filters.items():
+		if value != 0 and type(value) == int:
+			filter[key] = value
+		if type(value) == dict:
+			if value.get('max'):
+				filter[f'{key}__lte'] = value.get('max') 
+			if value.get('min'):
+				filter[f'{key}__gte'] = value.get('min') 
+		if value and type(value) == str:
+			filter[f'{key}__icontains'] = value 
+	
+	models = model.objects.filter(**filter)
 	
 	print(len(models))
 

@@ -37,6 +37,7 @@ const TableRow = ({ data, length, page }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div
+      className="table-row"
       onClick={() => setIsOpen((oldOpen) => !oldOpen)}
       style={{ gridTemplateColumns: `repeat(${length}, 1fr)` }}
     >

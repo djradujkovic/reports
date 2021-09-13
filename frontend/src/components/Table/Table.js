@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Filter from "./Filter";
+import Filter from "../Filter/Filter";
 import FindParent from "../../helpers/FindParent";
 import "./Table.style.css";
 import TableRow from "./TableRow";
@@ -50,7 +50,7 @@ const Table = ({ data, page, defaultData }) => {
         >
           <Fields page={page} length={length} />
         </div>
-        <div>
+        <div className="table-data">
           {displayData !== [] &&
             displayData.map((d) => (
               <TableRow key={d.id} page={page} data={d} length={length} />

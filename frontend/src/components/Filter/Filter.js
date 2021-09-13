@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 
+import "./Filter.style.css";
+
 import axios from "axios";
 
 import { HiFilter } from "react-icons/hi";
@@ -122,22 +124,22 @@ const Filter = ({ page, data, defaultFilter, setDisplayData, filters }) => {
   return (
     <>
       <div
-        className="filter"
+        className="filter-wrap"
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={(e) => handleMouseLeave(e)}
         style={{
-          padding: isOpen && "2rem",
-          margin: isOpen && "2rem",
+          padding: isOpen && "0.2rem",
+          margin: isOpen && "1rem",
           marginInlineEnd: isOpen && "0rem",
           // placeSelf: isOpen && "center",
           border: !isOpen && "none",
         }}
       >
         {isOpen && (
-          <>
+          <div className="filter">
             <Fields page={page} filter={filter} setFilter={setFilter} />
             <button onClick={() => handleReport()}>Napravi izvještaj</button>
-          </>
+          </div>
         )}
         <div
           className="icon"
