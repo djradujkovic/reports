@@ -29,7 +29,15 @@
 
 .filter > * > input {
   background-color: var(--main);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.filter > .date > input {
   border: none;
+}
+
+.filter-select {
+  padding: 0rem;
 }
 
 .filter > .range {

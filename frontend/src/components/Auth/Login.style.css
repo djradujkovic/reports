@@ -1,0 +1,10 @@
+.login {
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.login > form > p {
+  margin: 0px;
+  padding: 0px;
+}

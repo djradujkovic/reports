@@ -117,8 +117,12 @@ const Filter = ({ page, data, defaultFilter, setDisplayData, filters }) => {
     }
   };
 
-  const handleReport = () => {
-    axios.post("http://localhost:8000/reports/pages/projects/create/", filter);
+  const handleReport = async () => {
+    const res = await axios.post(
+      `http://localhost:8000/reports/pages/${page.key}/create/`,
+      filter
+    );
+    window.location.href = `http://localhost:8000/reports/${res.data}`;
   };
 
   return (

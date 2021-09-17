@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
+import Select from "../Select/Select";
 
 const FilterField = ({ filter, setFilter, field }) => {
-  const options = useSelector((state) => state.data[field.options]);
+  // const options = useSelector((state) => state.data[field.options]);
   const handleChange = (e) => {
     let value = 0;
     switch (typeof filter[e.target.name]) {
@@ -112,8 +112,14 @@ const FilterField = ({ filter, setFilter, field }) => {
           <span>
             <input type="checkbox" defaultChecked className="checkbox" />
           </span>
-
-          <select
+          <Select
+            id={filter.key}
+            field={field}
+            value={filter[field.key]}
+            setData={setFilter}
+            editable={true}
+          />
+          {/* <select
             name={field.key}
             value={filter[field.key]}
             onChange={(e) => handleChange(e)}
@@ -126,7 +132,7 @@ const FilterField = ({ filter, setFilter, field }) => {
                 </option>
               );
             })}
-          </select>
+          </select> */}
         </>
       );
     case "date":
@@ -136,7 +142,7 @@ const FilterField = ({ filter, setFilter, field }) => {
             <input type="checkbox" defaultChecked className="checkbox" />
           </span>
 
-          <div>
+          <div className="date">
             <input
               type={field.type}
               name={field.key}

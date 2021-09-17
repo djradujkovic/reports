@@ -25,3 +25,5 @@ export const GetForeigns = (page) => {
     }
   });
 };
+
+export const GetUser = () => useSelector((state) => state.auth.user);

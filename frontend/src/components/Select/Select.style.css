@@ -1,0 +1,54 @@
+.select {
+  position: relative;
+  display: flex;
+  /* border: 1px solid black; */
+  /* width: 100%; */
+  /* border-bottom: 1px solid var(--lines); */
+}
+
+.select > input {
+  /* display: block; */
+  width: 100%;
+}
+
+.select > div:not(.label) {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 0.1rem;
+  box-sizing: border-box;
+  top: 100%;
+  background-color: var(--main);
+  border: 1px solid var(--lines);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  max-height: 15rem;
+  overflow-y: auto;
+  z-index: 10;
+  text-align: start;
+}
+
+.select > div > div {
+  background-color: var(--second);
+  border: 1px solid var(--lines);
+  border-radius: var(--radius);
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.select > input:hover {
+  cursor: pointer;
+}
+
+.select > input:focus {
+  cursor: inherit;
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1rem;
+}

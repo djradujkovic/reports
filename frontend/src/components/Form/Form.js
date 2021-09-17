@@ -2,15 +2,19 @@ import { useEffect, useState } from "react";
 
 import { useDispatch } from "react-redux";
 
-import { GetDataById } from "../../helpers/GetStates";
+import { GetDataById, GetUser } from "../../helpers/GetStates";
 import { addData, deleteData, updateData } from "../../redux/actions/data";
 import Field from "./Field";
 import "./Form.style.css";
 
 const Form = ({ active, defaultData, page }) => {
   const dispatch = useDispatch();
-
-  const editable = true;
+  const user = GetUser();
+  const editable = user.group.pages.includes(page.key);
+  // const [editable, setEditable] = useState(user.group.pages.includes(page.key));
+  // const editable = true;
+  console.log(active);
+  console.log(defaultData);
 
   const [formData, setFormData] = useState(defaultData);
   const data = GetDataById(page.key, active);
@@ -21,13 +25,18 @@ const Form = ({ active, defaultData, page }) => {
     } else {
       setFormData(data);
     }
+    // setEditable(user.group.pages.includes(page.key));
   }, [active, data, defaultData]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const Break = page.fields.map((field) => {
+      if (formData[field.key] === 0) return false;
+      return true;
+    });
+    // if (Break.find((s) => !s) === false) return 0;
     if (formData.id === "") {
       dispatch(addData(page.key, formData));
-      // setFormData((oldData) => emptyDict(oldData));
     } else {
       dispatch(updateData(page.key, formData));
     }
@@ -50,6 +59,7 @@ const Form = ({ active, defaultData, page }) => {
             field={field}
             data={formData}
             setData={setFormData}
+            editable={editable}
           />
         );
       })}

@@ -3,15 +3,14 @@ import { GetData, GetForeigns } from "../../helpers/GetStates";
 import { useEffect, useState } from "react";
 import Form from "../Form/Form";
 import Table from "../Table/Table";
+import { GetDefaultData } from "../../helpers/GetDefaultData";
 
 const PageLogic = ({ page, table }) => {
   GetForeigns(page.key);
 
   const data = GetData(page.key);
 
-  const defaultData = page.fields.reduce((prev, field) => {
-    return { ...prev, [field.key]: field.value };
-  }, {});
+  const defaultData = GetDefaultData(page);
 
   document.title = page.name;
 

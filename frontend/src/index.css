@@ -43,7 +43,7 @@
   --lines: black; */
 
   --radius: 0.5rem;
-  --text-size: 1em;
+  --text-size: 1vw + 1rem;
 }
 
 @media (max-width: 1347px) {

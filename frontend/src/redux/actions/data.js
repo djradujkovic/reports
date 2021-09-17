@@ -19,6 +19,7 @@ export const getData = (page) => async (dispatch) => {
 
 export const addData = (page, data) => async (dispatch) => {
   const res = await axios.post(`${url}/api/pages/${page}/post/`, data);
+  // if (!res.data.id) return console.log("error");
   dispatch({
     type: ADD,
     payload: res.data,

@@ -3,11 +3,14 @@ from django.db.models import fields
 
 from django.apps import apps
 
+from datetime import date
+
 pages = [
     {
         "key": "cities",
         "name": "Gradovi",
         'for': 'city',
+        'admin': 4,
         'table': False,
         "fields": [
             {
@@ -24,7 +27,7 @@ pages = [
                 "field_type": "CharField",
                 "attrs": {"max_length": 50},
                 "value": "",
-                "name": "Naziv",
+                "name": "Naziv grada",
                 "label": "Pretraga..",
                 "type": "text",
                 "required": True,
@@ -36,6 +39,7 @@ pages = [
         "key": "users",
         "name": "Korisnici",
         'for': 'user',
+        'admin': 4,
         'table': False,
         "fields": [
             {
@@ -87,6 +91,7 @@ pages = [
         "key": "positions",
         "name": "Pozicije",
         'for': 'position',
+        'admin': 6,
         'table': False,
         "fields": [
             {
@@ -103,7 +108,7 @@ pages = [
                 "field_type": "CharField",
                 "attrs": {"max_length": 50},
                 "value": "",
-                "name": "Naziv",
+                "name": "Naziv pozicije",
                 "label": "Pretraga..",
                 "type": "text",
                 "required": True,
@@ -114,6 +119,7 @@ pages = [
     {
         "key": "projects",
         "name": "Odluke",
+        'admin': 1,
         'table': True,
         "fields": [
             {
@@ -129,7 +135,7 @@ pages = [
                 "key": "name",
                 "field_type": "CharField",
                 "attrs": {"max_length": 50},
-                "value": "",
+                "value": "BR-",
                 "name": "Broj odluke",
                 "label": "Pretraga..",
                 "type": "text",
@@ -177,14 +183,14 @@ pages = [
                 "key": "date",
                 'field_type': 'DateField',
                 'attrs': {},
-                "value": {"value": "", "min": "", "max": ""},
-                "name": "Datum",
+                "value": {"value": date.today(), "min": "", "max": ""},
+                "name": "Datum odobravanja",
                 "type": "date",
                 "required": True,
                 "table": True,
             },
         ],
-    },
+    }
 ]
 
 for page in pages:
@@ -193,6 +199,5 @@ for page in pages:
         for field in page.get("fields")
     }
     module = {"__module__": __name__}
-    # test5 = {"fields": page.get("fields")}
     classFields = dict(**fields, **module)
     type(page.get("key"), (models.Model,), classFields)

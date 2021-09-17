@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import "./NavBar.style.css";
 import logo from "./sluzba-logo.png";
-import { GetPages } from "../../helpers/GetStates";
+import { GetPages, GetUser } from "../../helpers/GetStates";
 import Themes from "../Themes/Themes";
 
 const NavBar = () => {
   const pages = GetPages();
+  const user = GetUser();
   return (
     <div className="navbar">
       <Themes />
@@ -15,6 +16,9 @@ const NavBar = () => {
         <span>Aplikacija za praćenje projekata</span>
       </div>
       {pages.map((page) => {
+        if (!user.loggedIn) return null;
+        // if (user.admin < page.admin) return null;
+        if (!user.group.pages.includes(page.key)) return null;
         return (
           <NavLink
             key={page.key}
@@ -27,6 +31,9 @@ const NavBar = () => {
         );
       })}
       {pages.map((page) => {
+        if (!user.loggedIn) return null;
+        // if (user.admin < page.admin) return null;
+        if (!user.group.pages.includes(page.key)) return null;
         if (page.table) {
           return (
             <NavLink
@@ -41,6 +48,9 @@ const NavBar = () => {
         }
         return null;
       })}
+      <NavLink exact to="/login" activeClassName="navactive">
+        Login
+      </NavLink>
     </div>
   );
 };
