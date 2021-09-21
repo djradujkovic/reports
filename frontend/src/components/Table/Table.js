@@ -51,6 +51,7 @@ const Table = ({ data, page, defaultData }) => {
           <Fields page={page} length={length} />
         </div>
         <div className="table-data">
+          <TableRow page={page} length={length} />
           {displayData !== [] &&
             displayData.map((d) => (
               <TableRow key={d.id} page={page} data={d} length={length} />

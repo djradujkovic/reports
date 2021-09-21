@@ -7,7 +7,7 @@ export const getUser = () => (dispatch) => {
       name: "djole",
       group: {
         name: "Admin",
-        pages: ["projects", "users"],
+        pages: ["users", "projects"],
       },
       loggedIn: true,
     },

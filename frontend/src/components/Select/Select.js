@@ -70,7 +70,8 @@ const Select = ({ id, field, value, setData, editable }) => {
   const [search, setSearch] = useState("");
   useEffect(() => {
     if (value) {
-      setSearch(options.find((option) => option.id === value).name);
+      const option = options.find((option) => option.id === value);
+      setSearch(option ? option.name : "");
     } else {
       setSearch("");
     }

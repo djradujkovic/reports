@@ -5,9 +5,27 @@ form {
   background-color: var(--second);
   padding: 1.5rem;
   border-radius: var(--radius);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  box-shadow: 
+  /* rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, */
+    /* rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, */ rgba(
+      10,
+      37,
+      64,
+      0.35
+    )
+    0px -2px 6px 0px inset;
+}
+
+form > .form-head {
+  grid-column: 1/3;
+  font-size: calc(var(--text-size) * 0.5);
+  text-align: center;
+  /* border-bottom: 1px solid var(--lines); */
+  border-radius: var(--radius);
+  margin: -1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px -10px 5px -10px var(--lines) inset;
+  padding: 0.5rem;
 }
 
 form > label {
@@ -21,13 +39,20 @@ input {
   background-color: var(--second);
   border-bottom: 1px solid var(--lines);
   font-size: var(--text-size);
+  align-self: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   padding-inline: 1rem;
+  /* padding-top: 1rem; */
+  border-radius: var(--radius);
 }
 
 input:focus {
+  /* background-color: var(--main); */
+  /* box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
   outline: none;
-  border: 1px solid var(--lines);
-  border-radius: var(--radius);
+  border-radius: 0rem;
+  /* border: 1px solid var(--lines); */
 }
 
 select {

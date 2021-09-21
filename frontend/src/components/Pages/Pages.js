@@ -35,7 +35,7 @@ const Pages = () => {
       })}
       {pages.map((page) => {
         if (!user.loggedIn) return null;
-        if (user.admin < page.admin) return null;
+        if (!user.group.pages.includes(page.key)) return null;
         if (page.table) {
           return (
             <Route

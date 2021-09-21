@@ -20,22 +20,28 @@
   margin-top: 0.1rem;
   box-sizing: border-box;
   top: 100%;
-  background-color: var(--main);
-  border: 1px solid var(--lines);
+  background-color: var(--second);
+  /* border: 1px solid var(--lines); */
   border-radius: var(--radius);
   padding: 0.5rem;
   max-height: 15rem;
   overflow-y: auto;
   z-index: 10;
   text-align: start;
+  box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
 .select > div > div {
-  background-color: var(--second);
-  border: 1px solid var(--lines);
+  background-color: var(--main);
+  /* border: 1px solid var(--lines); */
   border-radius: var(--radius);
   padding: 1rem;
   cursor: pointer;
+  box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.select > div > div:hover {
+  box-shadow: rgba(10, 37, 64, 0.5) 0px -2px 20px 0px inset;
 }
 
 .select > input:hover {

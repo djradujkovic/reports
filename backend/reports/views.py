@@ -95,9 +95,11 @@ def get_model(model, page):
 		value = (getattr(model, field.get('key')))
 		if field.get('options'):
 			m = apps.get_model(app_label='pages', model_name=field.get('options'))
-			m = m.objects.get(id=value)
-			value = get_model(model=m, page=field.get('options'))
-
+			try:
+				m = m.objects.get(id=value)
+				value = get_model(model=m, page=field.get('options'))
+			except:
+				return 0
 
 		if type(value) == list:
 			mdl.extend(value)
@@ -107,7 +109,7 @@ def get_model(model, page):
 	return mdl
 
 def get_models(models, page):
-	return [get_model(model=model, page=page) for model in models]
+	return [get_model(model=model, page=page) for model in models if get_model(model=model, page=page) != 0]
 
 def create_xlsx(page, models):
 

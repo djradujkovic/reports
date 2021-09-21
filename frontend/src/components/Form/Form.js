@@ -1,32 +1,31 @@
 import { useEffect, useState } from "react";
 
 import { useDispatch } from "react-redux";
+import { GetDefaultData } from "../../helpers/GetDefaultData";
 
 import { GetDataById, GetUser } from "../../helpers/GetStates";
 import { addData, deleteData, updateData } from "../../redux/actions/data";
 import Field from "./Field";
 import "./Form.style.css";
 
-const Form = ({ active, defaultData, page }) => {
+const Form = ({ active, page }) => {
   const dispatch = useDispatch();
   const user = GetUser();
+  const defaultData = GetDefaultData(page);
   const editable = user.group.pages.includes(page.key);
   // const [editable, setEditable] = useState(user.group.pages.includes(page.key));
-  // const editable = true;
-  console.log(active);
-  console.log(defaultData);
-
-  const [formData, setFormData] = useState(defaultData);
   const data = GetDataById(page.key, active);
+
+  const [formData, setFormData] = useState(data ? data : defaultData);
 
   useEffect(() => {
     if (active === 0) {
       setFormData(defaultData);
     } else {
-      setFormData(data);
+      setFormData(data ? data : defaultData);
     }
     // setEditable(user.group.pages.includes(page.key));
-  }, [active, data, defaultData]);
+  }, [active, data]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,6 +43,7 @@ const Form = ({ active, defaultData, page }) => {
 
   const handleDelete = () => {
     dispatch(deleteData(page.key, formData.id));
+    active = 0;
     //     setActive(0);
   };
 
@@ -52,6 +52,7 @@ const Form = ({ active, defaultData, page }) => {
       onSubmit={(e) => handleSubmit(e)}
       onClick={(e) => e.stopPropagation()}
     >
+      <div className="form-head">{page.name}</div>
       {page.fields.map((field) => {
         return (
           <Field

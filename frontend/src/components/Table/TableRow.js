@@ -15,7 +15,7 @@ const TableField = ({ field, data }) => {
   if (!field.table && !field.options) return null;
   const parent = FindParent(field);
   if (parent) {
-    const page = GetDataById(parent.key, data[field.key]);
+    const page = GetDataById(parent.key, data && data[field.key]);
     if (page) {
       return (
         <>
@@ -25,9 +25,12 @@ const TableField = ({ field, data }) => {
       );
     }
   }
+  if (!data) {
+    return <h5></h5>;
+  }
   return (
     <h5>
-      {data[field.key]}
+      {data && data[field.key]}
       {field.key === "price" && "KM"}
     </h5>
   );
@@ -41,10 +44,10 @@ const TableRow = ({ data, length, page }) => {
       onClick={() => setIsOpen((oldOpen) => !oldOpen)}
       style={{ gridTemplateColumns: `repeat(${length}, 1fr)` }}
     >
-      <TableFields page={page} id={data.id} />
+      <TableFields page={page} id={data && data.id} />
       {isOpen && (
         <div>
-          <SubTableLogic page={page} id={data.id} />
+          <SubTableLogic page={page} id={data && data.id} />
         </div>
       )}
     </div>
