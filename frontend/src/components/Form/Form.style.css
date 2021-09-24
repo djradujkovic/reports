@@ -39,7 +39,7 @@ input {
   background-color: var(--second);
   border-bottom: 1px solid var(--lines);
   font-size: var(--text-size);
-  align-self: center;
+  /* align-self: center; */
   /* align-items: center; */
   /* justify-content: center; */
   padding-inline: 1rem;
