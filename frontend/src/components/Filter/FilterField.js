@@ -1,3 +1,4 @@
+import { GetData, getMaxValue } from "../../helpers/GetStates";
 import Select from "../Select/Select";
 
 const FilterField = ({ filter, setFilter, field }) => {
@@ -40,6 +41,7 @@ const FilterField = ({ filter, setFilter, field }) => {
         </>
       );
     case "number":
+      const max = getMaxValue("projects", field.key);
       return (
         <>
           <span>
@@ -50,8 +52,8 @@ const FilterField = ({ filter, setFilter, field }) => {
               type="range"
               value={filter[field.key].min}
               id="min"
-              min={field.range[0]}
-              max={field.range[1]}
+              min={0}
+              max={max}
               step={10}
               name={field.key}
               onChange={(e) => handleChange(e)}
@@ -61,8 +63,8 @@ const FilterField = ({ filter, setFilter, field }) => {
               type="number"
               value={filter[field.key].min}
               id="min"
-              min={field.range[0]}
-              max={field.range[1]}
+              min={0}
+              max={max}
               step={10}
               name={field.key}
               onChange={(e) => handleChange(e)}
@@ -71,8 +73,8 @@ const FilterField = ({ filter, setFilter, field }) => {
               type="range"
               value={filter[field.key].max}
               id="max"
-              min={field.range[0]}
-              max={field.range[1]}
+              min={0}
+              max={max}
               step={10}
               name={field.key}
               onChange={(e) => handleChange(e)}
@@ -81,8 +83,8 @@ const FilterField = ({ filter, setFilter, field }) => {
               type="number"
               value={filter[field.key].max}
               id="max"
-              min={field.range[0]}
-              max={field.range[1]}
+              min={0}
+              max={max}
               step={10}
               name={field.key}
               onChange={(e) => handleChange(e)}

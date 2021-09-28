@@ -1,6 +1,12 @@
 import { ADD, DELETE, GET, UPDATE } from "../types";
 
-const initialState = { users: [], cities: [], projects: [], positions: [] };
+const initialState = {
+  users: [],
+  cities: [],
+  projects: [],
+  positions: [],
+  reports: [],
+};
 
 export default function data(state = initialState, action) {
   switch (action.type) {

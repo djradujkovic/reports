@@ -33,6 +33,9 @@ const Table = ({ data, page, defaultData }) => {
   // console.log(data);
   const [displayData, setDisplayData] = useState(data);
   const length = superData.length;
+  console.log(superData);
+  // const length = 9;
+  console.log(defaultData);
 
   return (
     <div className="table-grid">

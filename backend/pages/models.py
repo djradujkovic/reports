@@ -162,7 +162,7 @@ pages = [
                 'attrs': {},
                 "value": {"value": 0, "min": 0, "max": 200},
                 "range": [0, 200],
-                "name": "Iznos",
+                "name": "Traženi iznos",
                 "type": "number",
                 "required": True,
                 "table": True,
@@ -190,6 +190,56 @@ pages = [
                 "table": True,
             },
         ],
+    },
+    {
+        'key': 'reports',
+        'name': 'Projekti',
+        'admin': 1,
+        'table': True,
+        'fields': [
+            {
+                "key": "id",
+                "field_type": "AutoField",
+                "attrs": {
+                    "primary_key": True,
+                },
+                "name": "",
+                "value": "",
+            },
+            {
+                'key': 'project',
+                'field_type': 'IntegerField',
+                'attrs': {},
+                'value': 0,
+                'name': 'Odluka',
+                'label': 'Izaberi odluku',
+                'type': 'select',
+                'options': 'projects',
+                'required': True,
+                'table': True,
+            },
+            {
+                "key": "paid_price",
+                'field_type': 'IntegerField',
+                'attrs': {},
+                "value": {"value": 0, "min": 0, "max": 200},
+                "range": [0, 200],
+                "name": "Isplaćeni iznos",
+                "type": "number",
+                "required": True,
+                "table": True,
+            },
+            {
+                "key": "paid_date",
+                'field_type': 'DateField',
+                'attrs': {},
+                "value": {"value": date.today(), "min": "", "max": ""},
+                "name": "Datum isplate",
+                "type": "date",
+                "required": True,
+                "table": True,
+            }
+        ]
     }
 ]
 

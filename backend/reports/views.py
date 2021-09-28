@@ -114,7 +114,7 @@ def get_models(models, page):
 def create_xlsx(page, models):
 
 	path = '/home/djole/Documents/fullstack/sluzba/reports'
-	table = f'{path}/tabela.xlsx'
+	table = f'{path}/tabela2.xlsx'
 	wb = openpyxl.load_workbook(table)
 	sheet = wb['Sheet1']
 

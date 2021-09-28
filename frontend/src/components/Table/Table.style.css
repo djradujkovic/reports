@@ -29,8 +29,8 @@
   background-color: var(--main);
   border-radius: var(--radius);
   grid-template-areas:
-    ". . . . . ."
-    "div div div div div div";
+    ". . . . . . . . ."
+    "div div div div div div div div div";
 
   cursor: pointer;
 

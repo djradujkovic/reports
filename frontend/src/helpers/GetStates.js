@@ -27,3 +27,12 @@ export const GetForeigns = (page) => {
 };
 
 export const GetUser = () => useSelector((state) => state.auth.user);
+
+export const getMaxValue = (page, field) => {
+  const data = GetData(page);
+  if (!data) return 0;
+  const priceList = data.reduce((prev, current) => {
+    return [...prev, current[field]];
+  }, []);
+  return Math.max(...priceList);
+};
